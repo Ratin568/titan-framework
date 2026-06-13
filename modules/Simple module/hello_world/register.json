@@ -1,6 +1,0 @@
-{
-  "name": "hello_world",
-  "priority": 100,
-  "enabled": true,
-  "files": ["hello.py"]
-}

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# 🧠 Titan Framework
+# Titan Framework
 
 ### Modular • Event-Driven • Plugin-Based • Zero Restrictions
 
@@ -405,17 +405,27 @@ https://github.com/Ratin568/titan-framework
 
 ---
 
-# 📜 License
+## 📄 License
 
-Titan Framework is released under the MIT License.
+This project is licensed under the **MIT License** – a permissive open-source license that allows you to do almost anything with the code, as long as you include the original copyright and license notice.
 
-You may:
+### You are free to:
 
-- Use commercially
-- Modify
-- Distribute
-- Create private forks
-- Build proprietary software
+- ✅ **Use commercially** – In your own products, services, or business
+- ✅ **Modify** – Change, adapt, or improve the source code
+- ✅ **Distribute** – Share the original or modified version
+- ✅ **Create private forks** – For internal or personal use
+- ✅ **Build proprietary software** – Use it in closed-source projects
+
+### You must:
+
+- **Keep the original copyright notice** and this license in all copies or substantial portions of the software
+
+### Limitations:
+
+- **THE SOFTWARE IS PROVIDED "AS IS"**, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
+- The author is **NOT LIABLE** for any claim, damages, or other liability arising from the use of the software
+
 
 The original copyright and license notice must remain included.
 
@@ -430,9 +440,3 @@ Unlimited possibilities.
 Build Discord bots your way.
 
 ---
-
-<div align="center">
-
-### Built with 🧠 by a night architect.
-
-</div>

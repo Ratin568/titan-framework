@@ -1,0 +1,35 @@
+{
+  "$schema": "https://titan-framework.com/schema/framework.json",
+  "version": "2.0.0",
+  "bot": {
+    "prefix": "!",
+    "guild_id": 1122769174045917265,
+    "activity": {
+      "name": "Titan System",
+      "type": "watching"
+    }
+  },
+  "modules": {
+    "search_paths": [
+      "modules",
+      "plugins",
+      "custom_modules"
+    ]
+  },
+  "database": {
+    "enabled": false,
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "",
+    "name": "titan_db"
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+  },
+  "features": {
+    "hot_reload": true,
+    "auto_sync_commands": true
+  }
+}

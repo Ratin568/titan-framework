@@ -1,0 +1,9 @@
+{
+  "name": "antispam",
+  "priority": 10,
+  "version": "2.0.0",
+  "description": "Automatic spam detection and punishment system",
+  "author": "Titan Team",
+  "enabled": true,
+  "files": ["main.py"],
+}

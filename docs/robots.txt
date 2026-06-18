@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ratin568.github.io/titan-framework/sitemap.xml

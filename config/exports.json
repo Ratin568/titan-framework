@@ -1,0 +1,27 @@
+{
+  "$schema": "https://titan-framework.com/schema/exports.json",
+  "version": "2.0.0",
+  "core": [
+    "TitanHub",
+    "EventBus",
+    "Event",
+    "ServiceContainer",
+    "PriorityRegistry"
+  ],
+  "modules": {
+    "antispam": [
+      "is_spamming",
+      "get_user_info",
+      "punish_user",
+      "reset_user",
+      "adjust_warnings"
+    ],
+    "hello_world": [
+      "hello_command"
+    ]
+  },
+  "custom": [
+    "MyCustomService",
+    "MyCustomClass"
+  ]
+}

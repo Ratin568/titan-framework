@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== PRIMARY SEO TAGS ===== -->
+    <title>Titan Framework | Modular Discord Bot Framework for Python</title>
+    <meta name="description" content="Titan Framework is a modular, event-driven Discord bot framework for Python. Build scalable Discord bots with priority-based loading, plugin-based architecture, and zero restrictions." />
+    <meta name="keywords" content="discord bot, python, framework, modular, event-driven, discord-py, plugin-based, thin-core, bot framework, python discord bot, scalable bots" />
+    <meta name="author" content="Ratin Karami" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ratin568.github.io/titan-framework/" />
+
+    <!-- ===== THEME COLOR ===== -->
+    <meta name="theme-color" content="#f1c40f" />
+
+    <!-- ===== OPEN GRAPH (Facebook, LinkedIn, Telegram) ===== -->
+    <meta property="og:title" content="Titan Framework - Modular Discord Bot Framework" />
+    <meta property="og:description" content="Build scalable Discord bots with Python using Titan Framework. Plugin-based, event-driven, with priority-based module loading." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ratin568.github.io/titan-framework/" />
+    <meta property="og:image" content="https://ratin568.github.io/titan-framework/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Titan Framework" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ===== TWITTER CARDS ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Titan Framework - Modular Discord Bot Framework" />
+    <meta name="twitter:description" content="Build scalable Discord bots with Python using Titan Framework. Plugin-based, event-driven, with priority-based module loading." />
+    <meta name="twitter:image" content="https://ratin568.github.io/titan-framework/og-image.png" />
+    <meta name="twitter:site" content="@RatinKarami" />
+
+    <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Titan Framework",
+            "description": "A modular, event-driven Discord bot framework for Python with plugin-based architecture and priority-based module loading.",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Windows, macOS, Linux",
+            "programmingLanguage": "Python",
+            "url": "https://ratin568.github.io/titan-framework/",
+            "author": {
+                "@type": "Person",
+                "name": "Ratin Karami"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "license": "https://github.com/Ratin568/titan-framework/blob/main/LICENSE"
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+    <style>
+        /* ===== CSS VARIABLES (تم زرد) ===== */
+        :root {
+            --primary: #f1c40f;
+            --primary-light: #f5d627;
+            --primary-dark: #f39c12;
+            --primary-glow: rgba(241, 196, 15, 0.2);
+            --primary-gradient: linear-gradient(135deg, #f1c40f, #f39c12);
+            --bg-color: #0a0a0a;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+        }
+
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ===== PARTICLES ===== */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px) saturate(1.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 7rem 2rem 2rem 2rem;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 3rem 0;
+        }
+
+        .hero .badge-top {
+            display: inline-block;
+            background: rgba(241, 196, 15, 0.1);
+            border: 1px solid rgba(241, 196, 15, 0.2);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-light);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 4.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 50%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 2rem auto;
+            font-weight: 400;
+        }
+
+        .hero .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero .badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .hero .badge:hover {
+            background: rgba(241, 196, 15, 0.1);
+            border-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: #1a1a1a;
+            box-shadow: 0 4px 30px rgba(241, 196, 15, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 40px rgba(241, 196, 15, 0.4);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(241, 196, 15, 0.1);
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin: 5rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff, var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-left: 4px solid var(--primary);
+            padding-left: 1.2rem;
+        }
+
+        /* ===== FEATURES ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            padding: 2rem 1.8rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.4s;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.05), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .feature-card .highlight {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* ===== STATS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        /* ===== CODE BLOCK ===== */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: border-color 0.3s;
+        }
+
+        .code-block:hover {
+            border-color: var(--primary);
+        }
+
+        .code-block pre {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: #c8d0dc;
+        }
+
+        .code-block .comment { color: #5a6a7a; }
+        .code-block .keyword { color: var(--primary-light); }
+        .code-block .string { color: #8bffb0; }
+        .code-block .function { color: #ffb88b; }
+
+        /* ===== TABLE ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: border-color 0.3s;
+        }
+
+        .table-wrapper:hover {
+            border-color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        th {
+            background: rgba(241, 196, 15, 0.08);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        td code {
+            color: var(--primary-light);
+            background: rgba(241, 196, 15, 0.08);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* ===== INSTALL BOX ===== */
+        .install-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.8rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(241, 196, 15, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 196, 15, 0.2);
+            color: #f1c40f;
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            transform: scale(1.08);
+            color: #1a1a1a;
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(241, 196, 15, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            margin-top: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        /* ============================================ */
+        /* ===== RESPONSIVE ===== */
+        /* ============================================ */
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.8rem; }
+            .hero .subtitle { font-size: 1.1rem; max-width: 90%; }
+            .section-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 5.5rem 1.2rem 1.2rem 1.2rem; }
+            .hero { padding: 2.5rem 0 2rem 0; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero .subtitle { font-size: 1rem; max-width: 100%; padding: 0 0.5rem; }
+            .hero .badge-container { gap: 0.4rem; }
+            .hero .badge { font-size: 0.65rem; padding: 0.25rem 0.8rem; }
+            .hero .badge-top { font-size: 0.6rem; padding: 0.25rem 0.8rem; }
+            .section { margin: 3.5rem 0; }
+            .section-title { font-size: 1.5rem; padding-left: 0.8rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .feature-card { padding: 1.5rem 1.2rem; }
+            .feature-card h3 { font-size: 1rem; }
+            .btn { padding: 0.6rem 1.4rem; font-size: 0.85rem; }
+            .nav-links a { margin-left: 1rem; font-size: 0.75rem; }
+            .logo { font-size: 1.2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; padding: 2rem 1rem; }
+            .stat-number { font-size: 2.2rem; }
+            .stat-label { font-size: 0.75rem; }
+            .code-block { padding: 1rem; }
+            .code-block pre { font-size: 0.7rem; }
+            .table-wrapper { font-size: 0.8rem; }
+            th, td { padding: 0.5rem 0.8rem; }
+            .install-box { padding: 1.2rem; }
+            .back-to-top { width: 40px; height: 40px; font-size: 1rem; bottom: 1.2rem; right: 1.2rem; opacity: 0.7; }
+            .back-to-top.visible { opacity: 1; }
+            footer { padding: 2rem 0; font-size: 0.75rem; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 5rem 0.8rem 0.8rem 0.8rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 0.85rem; }
+            .section-title { font-size: 1.2rem; padding-left: 0.6rem; border-left-width: 3px; }
+            .nav-links a { margin-left: 0.6rem; font-size: 0.65rem; }
+            .logo { font-size: 1rem; }
+            .navbar { padding: 0.8rem 1rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; padding: 1.2rem 0.8rem; }
+            .stat-number { font-size: 1.8rem; }
+            .btn { padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 8px; }
+            .buttons { gap: 0.5rem; }
+            .feature-card { padding: 1rem 0.8rem; border-radius: 12px; }
+            .feature-card h3 { font-size: 0.9rem; }
+            .feature-card p { font-size: 0.8rem; }
+            .feature-icon { font-size: 1.5rem; }
+            .code-block { padding: 0.8rem; }
+            .code-block pre { font-size: 0.6rem; }
+            .back-to-top { width: 36px; height: 36px; font-size: 0.9rem; bottom: 1rem; right: 1rem; opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="logo" aria-label="Titan Framework logo">Titan</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#installation">Installation</a>
+                <a href="#modules">Modules</a>
+                <a href="https://github.com/Ratin568/titan-framework" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===== HERO SECTION ===== -->
+        <header class="hero">
+            <div class="badge-top scramble-text">🚀 v2.0.0 — Now with Thin Core</div>
+            <h1 class="scramble-text">Titan Framework</h1>
+            <p class="subtitle scramble-text">A plugin-based, event-driven Discord bot framework for Python with thin-core architecture and zero restrictions.</p>
+            <div class="badge-container">
+                <span class="badge scramble-text">🐍 Python 3.11+</span>
+                <span class="badge scramble-text">📦 Plugin-Based</span>
+                <span class="badge scramble-text">⚡ Event-Driven</span>
+                <span class="badge scramble-text">🧩 Thin Core</span>
+                <span class="badge scramble-text">📄 JSON Config</span>
+            </div>
+            <div class="buttons">
+                <a href="https://github.com/Ratin568/titan-framework" target="_blank" rel="noopener noreferrer" class="btn btn-primary scramble-text">📦 GitHub Repository</a>
+                <a href="#installation" class="btn btn-secondary scramble-text">🚀 Quick Start</a>
+            </div>
+        </header>
+
+        <!-- ===== STATS SECTION ===== -->
+        <section class="section" id="stats" aria-label="Framework statistics">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number scramble-text">1500</div>
+                    <span class="stat-label">Core Lines</span>
+                </div>
+                <div>
+                    <div class="stat-number scramble-text">2</div>
+                    <span class="stat-label">Built-in Modules</span>
+                </div>
+                <div>
+                    <div class="stat-number scramble-text">100%</div>
+                    <span class="stat-label">Open Source</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES SECTION ===== -->
+        <section class="section" id="features" aria-label="Features">
+            <h2 class="section-title scramble-text">✨ Features</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Plugin-Based</h3>
+                    <p>Every feature is a plugin. Add or remove modules without touching the core. Just drop a folder with <code class="highlight">register.json</code>.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Priority Loading</h3>
+                    <p>Control load order with <code class="highlight">priority</code> in <code>register.json</code>. Lower number = loads first.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Event-Driven</h3>
+                    <p>Built-in <code class="highlight">EventBus</code> for loose coupling between modules. Modules don't know each other.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Service Container</h3>
+                    <p>Dependency Injection container for sharing services. <code class="highlight">services.get()</code> anywhere.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Thin Core</h3>
+                    <p><span class="highlight">~1500 lines</span> of core code. Everything else is a plugin. Minimal and stable.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>JSON Config</h3>
+                    <p>Configure via <code class="highlight">config/framework.json</code> and <code class="highlight">config/exports.json</code>.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Hot Reload</h3>
+                    <p>Reload modules at runtime without restarting the bot. Perfect for development.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Built-in AntiSpam</h3>
+                    <p>Production-ready spam detection with warning levels, decay timers, mute role.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Zero Restrictions</h3>
+                    <p>Modules can do <span class="highlight">ANYTHING</span>. No hand-holding, no artificial limits.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== ARCHITECTURE SECTION ===== -->
+        <section class="section" id="architecture" aria-label="Architecture">
+            <h2 class="section-title scramble-text">🧠 Architecture</h2>
+            <div class="code-block">
+                <pre>
+┌─────────────────────────────────────────────────────────────┐
+│                      Titan Framework                        │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│               Core (Thin Core - ~1500 lines)                │
+│                                                             │
+│   • EventBus      - Loose coupling                         │
+│   • ServiceContainer - Dependency Injection                │
+│   • PriorityRegistry - Module discovery & loading          │
+│   • Hub           - Central coordinator                    │
+│                                                             │
+│   from core import *  ← Single entry point                 │
+└─────────────────────────────────────────────────────────────┘
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        ▼                     ▼                     ▼
+┌───────────────┐   ┌───────────────┐   ┌───────────────┐
+│   config/     │   │   modules/    │   │   plugins/    │
+│  (JSON Config)│   │  (Plugins)    │   │  (Extensions) │
+└───────────────┘   └───────────────┘   └───────────────┘</pre>
+            </div>
+        </section>
+
+        <!-- ===== INSTALLATION SECTION ===== -->
+        <section class="section" id="installation" aria-label="Installation">
+            <h2 class="section-title scramble-text">🚀 Installation</h2>
+            <div class="install-box">
+                <div class="code-block">
+                    <pre><span class="comment"># Clone the repository</span>
+git clone https://github.com/Ratin568/titan-framework.git
+cd titan-framework
+
+<span class="comment"># Install dependencies</span>
+pip install -r requirements.txt
+
+<span class="comment"># Configure environment</span>
+cp .env.example .env
+
+<span class="comment"># Edit .env with your Discord bot token</span>
+
+<span class="comment"># Run the bot</span>
+python main.py</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECT STRUCTURE ===== -->
+        <section class="section" aria-label="Project structure">
+            <h2 class="section-title scramble-text">📁 Project Structure</h2>
+            <div class="code-block">
+                <pre>titan-framework/
+├── core/                    # Thin Core
+│   ├── events/              # EventBus
+│   ├── container/           # ServiceContainer
+│   └── registry/            # PriorityRegistry
+├── config/                  # JSON Configuration
+│   ├── framework.json
+│   └── exports.json
+├── modules/                 # Plugins
+│   ├── antispam/
+│   └── hello_world/
+├── main.py
+└── README.md</pre>
+            </div>
+        </section>
+
+        <!-- ===== BUILT-IN MODULES ===== -->
+        <section class="section" id="modules" aria-label="Built-in modules">
+            <h2 class="section-title scramble-text">📦 Built-in Modules</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Module</th><th>Priority</th><th>Type</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>antispam</code></td>
+                            <td>10</td>
+                            <td>Complex</td>
+                            <td>Spam detection with warning levels, decay timers, mute role</td>
+                        </tr>
+                        <tr>
+                            <td><code>hello_world</code></td>
+                            <td>100</td>
+                            <td>Simple</td>
+                            <td>Minimal example with <code>/hello</code> command</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== CREATING A MODULE ===== -->
+        <section class="section" aria-label="Creating a module">
+            <h2 class="section-title scramble-text">🛠 Creating a Module</h2>
+            <div class="code-block">
+                <pre><span class="comment"># Step 1: Create folder</span>
+modules/my_module/
+├── register.json
+└── main.py
+
+<span class="comment"># Step 2: register.json</span>
+{
+  <span class="keyword">"name"</span>: <span class="string">"my_module"</span>,
+  <span class="keyword">"priority"</span>: 50,
+  <span class="keyword">"enabled"</span>: true,
+  <span class="keyword">"files"</span>: [<span class="string">"main.py"</span>]
+}
+
+<span class="comment"># Step 3: main.py</span>
+<span class="keyword">from</span> core <span class="keyword">import</span> *
+
+<span class="keyword">async def</span> <span class="function">setup_module</span>(bot, event_bus, services):
+    <span class="keyword">@bot.tree.command</span>(name=<span class="string">"hello"</span>)
+    <span class="keyword">async def</span> <span class="function">hello</span>(interaction):
+        <span class="keyword">await</span> interaction.response.send_message(<span class="string">"Hello!"</span>)</pre>
+            </div>
+        </section>
+
+        <!-- ===== CONFIGURATION ===== -->
+        <section class="section" aria-label="Configuration">
+            <h2 class="section-title scramble-text">⚙️ Configuration</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div style="background: rgba(255,255,255,0.02); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.04);">
+                    <h4 style="color: #ffffff; margin-bottom: 0.8rem;">📄 framework.json</h4>
+                    <div class="code-block" style="margin-top: 0;">
+                        <pre>{
+  <span class="keyword">"bot"</span>: {
+    <span class="keyword">"prefix"</span>: <span class="string">"!"</span>,
+    <span class="keyword">"guild_id"</span>: 1122769174045917265,
+    <span class="keyword">"activity"</span>: {
+      <span class="keyword">"name"</span>: <span class="string">"Titan System"</span>,
+      <span class="keyword">"type"</span>: <span class="string">"watching"</span>
+    }
+  },
+  <span class="keyword">"modules"</span>: {
+    <span class="keyword">"search_paths"</span>: [<span class="string">"modules"</span>, <span class="string">"plugins"</span>]
+  }
+}</pre>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.04);">
+                    <h4 style="color: #ffffff; margin-bottom: 0.8rem;">📄 exports.json</h4>
+                    <div class="code-block" style="margin-top: 0;">
+                        <pre>{
+  <span class="keyword">"core"</span>: [
+    <span class="string">"TitanHub"</span>,
+    <span class="string">"EventBus"</span>,
+    <span class="string">"ServiceContainer"</span>
+  ],
+  <span class="keyword">"modules"</span>: {
+    <span class="keyword">"antispam"</span>: [
+      <span class="string">"is_spamming"</span>,
+      <span class="string">"get_user_info"</span>
+    ]
+  },
+  <span class="keyword">"custom"</span>: []
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TROUBLESHOOTING ===== -->
+        <section class="section" aria-label="Troubleshooting">
+            <h2 class="section-title scramble-text">🧯 Troubleshooting</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Problem</th><th>Solution</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Module not loading</td><td>Check <code>register.json</code> exists and <code>enabled</code> is true</td></tr>
+                        <tr><td>Slash commands not showing</td><td>Wait 1-2 minutes. Check <code>guild_id</code> in config</td></tr>
+                        <tr><td>Import errors</td><td>Use <code>from core import *</code> instead of direct imports</td></tr>
+                        <tr><td>Service not found</td><td>Register service with <code>services.register()</code> first</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p style="margin-bottom: 0.5rem;">MIT Licensed · Open Source</p>
+            <p style="font-size: 0.85rem;">
+                <a href="https://github.com/Ratin568/titan-framework" target="_blank" rel="noopener noreferrer">GitHub</a> &middot;
+                <a href="https://github.com/Ratin568/titan-framework/issues" target="_blank" rel="noopener noreferrer">Issues</a> &middot;
+                <a href="https://github.com/Ratin568/titan-framework/releases" target="_blank" rel="noopener noreferrer">Releases</a>
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem; color: #4a4a5a;">
+                <a href="/sitemap.xml" rel="sitemap">Sitemap</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script>
+        // ============================================
+        // 1. PARTICLES
+        // ============================================
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+        let mouseX = null, mouseY = null;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.5 + 0.15;
+                this.baseX = this.x;
+                this.baseY = this.y;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (mouseX !== null && mouseY !== null) {
+                    const dx = mouseX - this.x;
+                    const dy = mouseY - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 200) {
+                        const force = 0.04 * (1 - dist / 200);
+                        this.x += dx * force;
+                        this.y += dy * force;
+                    }
+                }
+
+                this.x += (this.baseX - this.x) * 0.001;
+                this.y += (this.baseY - this.y) * 0.001;
+
+                if (this.x > width) { this.x = 0; this.baseX = this.x; }
+                if (this.x < 0) { this.x = width; this.baseX = this.x; }
+                if (this.y > height) { this.y = 0; this.baseY = this.y; }
+                if (this.y < 0) { this.y = height; this.baseY = this.y; }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = '#f1c40f' + Math.floor(this.opacity * 100).toString(16).padStart(2, '0');
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 200; i++) {
+            particles.push(new Particle());
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            mouseX = null;
+            mouseY = null;
+        });
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = '#f1c40f' + Math.floor(15 * (1 - dist / 150)).toString(16).padStart(2, '0');
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // ============================================
+        // 2. TEXT SCRAMBLE + FADE-UP
+        // ============================================
+
+        const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+        function getRandomChar() {
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+        }
+
+        async function scrambleText(element, duration = 600) {
+            const originalText = element.textContent;
+            const chars = originalText.split('');
+            const totalSteps = Math.max(20, duration / 30);
+            let step = 0;
+
+            element.innerHTML = chars.map(char =>
+                `<span class="char" data-original="${char}">${char}</span>`
+            ).join('');
+
+            const charElements = element.querySelectorAll('.char');
+
+            return new Promise((resolve) => {
+                const interval = setInterval(() => {
+                    step++;
+
+                    charElements.forEach((span, index) => {
+                        const original = span.dataset.original;
+
+                        if (original.match(/[a-zA-Z0-9]/)) {
+                            const progress = step / totalSteps;
+                            const revealIndex = Math.floor(progress * charElements.length);
+
+                            if (index <= revealIndex) {
+                                span.textContent = original;
+                            } else {
+                                span.textContent = getRandomChar();
+                            }
+                        } else {
+                            span.textContent = original;
+                        }
+                    });
+
+                    if (step >= totalSteps) {
+                        clearInterval(interval);
+                        charElements.forEach(span => {
+                            span.textContent = span.dataset.original;
+                        });
+                        resolve();
+                    }
+                }, duration / totalSteps);
+            });
+        }
+
+        // ============================================
+        // 3. SCROLL OBSERVER
+        // ============================================
+
+        const sections = document.querySelectorAll('.section');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    const scrambleItems = entry.target.querySelectorAll('.scramble-text');
+                    if (scrambleItems.length > 0) {
+                        setTimeout(() => {
+                            scrambleItems.forEach((el, index) => {
+                                if (!el.dataset.scrambled) {
+                                    el.dataset.scrambled = 'true';
+                                    setTimeout(() => {
+                                        scrambleText(el, 600);
+                                    }, index * 120);
+                                }
+                            });
+                        }, 250);
+                    }
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // ============================================
+        // 4. INITIAL SCRAMBLE FOR HERO
+        // ============================================
+
+        async function initHeroScramble() {
+            const heroElements = document.querySelectorAll('.hero .scramble-text');
+
+            heroElements.forEach(el => {
+                el.classList.add('visible');
+            });
+
+            setTimeout(() => {
+                const promises = [];
+                heroElements.forEach(el => {
+                    if (!el.dataset.scrambled) {
+                        el.dataset.scrambled = 'true';
+                        promises.push(scrambleText(el, 750));
+                    }
+                });
+                Promise.all(promises);
+            }, 300);
+        }
+
+        // ============================================
+        // 5. BACK TO TOP
+        // ============================================
+
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backBtn.classList.add('visible');
+            } else {
+                backBtn.classList.remove('visible');
+            }
+        });
+
+        backBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ============================================
+        // 6. SMOOTH SCROLL
+        // ============================================
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ============================================
+        // 7. START
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.scramble-text').forEach(el => {
+                el.dataset.text = el.textContent;
+                el.classList.add('visible');
+            });
+
+            setTimeout(initHeroScramble, 400);
+        });
+    </script>
+
+</body>
+</html>

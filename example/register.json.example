@@ -1,0 +1,9 @@
+{
+  "name": "your_module_name",
+  "priority": 50,
+  "enabled": true,
+  "files": ["main.py"],
+  "description": "Your module description",
+  "author": "Your Name",
+  "version": "1.0.0"
+}

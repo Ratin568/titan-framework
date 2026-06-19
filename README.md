@@ -33,7 +33,6 @@ The framework follows a Thin Core philosophy: the core provides infrastructure o
 
 ## Highlights
 
-- Thin Core (~1500 LOC)
 - EventBus communication
 - Dependency Injection container
 - Priority-based module loading
@@ -98,46 +97,6 @@ Modules can do anything Python can do.
 
 ---
 
-# 🧠 Thin Core Architecture
-
-Traditional frameworks often become large monoliths.
-
-Titan keeps the core intentionally small.
-
-Core responsibilities:
-
-- Hub
-- EventBus
-- ServiceContainer
-- Registry
-- Configuration
-
-Everything else belongs in modules.
-
-Benefits:
-
-- Easier maintenance
-- Faster development
-- Better scalability
-- Cleaner code
-
----
-
-# 🏗 Project Structure
-
-```text
-titan-framework/
-├── core/
-├── config/
-├── modules/
-├── docs/
-├── main.py
-├── requirements.txt
-└── README.md
-```
-
----
-
 # ⚡ Quick Start
 
 ```bash
@@ -190,11 +149,11 @@ pip install -r requirements.txt
 }
 ```
 
-| Field | Description |
-|---------|-------------|
-| prefix | Command prefix |
-| guild_id | Development guild |
-| activity | Bot status |
+| Field        | Description        |
+|--------------|--------------------|
+| prefix       | Command prefix     |
+| guild_id     | Development guild  |
+| activity     | Bot status         |
 | search_paths | Module directories |
 
 ## exports.json
@@ -252,12 +211,12 @@ async def setup_module(bot, event_bus, services):
 
 # 📋 register.json Reference
 
-| Field | Required | Description |
-|---------|---------|-------------|
-| name | Yes | Module name |
-| priority | Yes | Load order |
-| enabled | Yes | Enable module |
-| files | Yes | Files to load |
+|  Field   | Required |  Description  |
+|----------|----------|---------------|
+| name     | Yes      | Module name   |
+| priority | Yes      | Load order    |
+| enabled  | Yes      | Enable module |
+| files    | Yes      | Files to load |
 
 Priority examples:
 
@@ -331,28 +290,16 @@ Updated
 
 ---
 
-# 🛡️ AntiSpam Module
-
-Included features:
-
-- Warning levels
-- Decay timers
-- Mute roles
-- Discord timeout support
-- Audit logging
-
----
 
 # ⚔️ Titan vs Traditional Frameworks
 
-| Feature | Titan | Traditional |
-|----------|--------|-------------|
-| Thin Core | ✅ | ❌ |
-| Event Driven | ✅ | Partial |
-| Plugin Based | ✅ | Partial |
-| Hot Reload | ✅ | Rare |
-| DI Container | ✅ | Rare |
-| Zero Restrictions | ✅ | ❌ |
+|  Feature      | Titan  | Traditional |
+|---------------|--------|-------------|
+| Event Driven      | ✅ | Partial |
+| Plugin Based      | ✅ | Partial |
+| Hot Reload        | ✅ | Rare    |
+| DI Container      | ✅ | Rare    |
+| Zero Restrictions | ✅ |   ❌   |
 
 ---
 
@@ -433,7 +380,7 @@ The original copyright and license notice must remain included.
 
 # 🌟 Philosophy
 
-Small core.
+Strong core.
 
 Unlimited possibilities.
 

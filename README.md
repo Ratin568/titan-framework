@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# 🧠 Titan Framework
+#  Titan Framework
 
 ### Modular • Event-Driven • Plugin-Based • Zero Restrictions
 

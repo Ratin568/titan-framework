@@ -15,7 +15,7 @@ A modern Discord bot framework built on a **Thin Core Architecture**.
 [![GitHub Forks](https://img.shields.io/github/forks/Ratin568/titan-framework?style=social)](https://github.com/Ratin568/titan-framework)
 [![GitHub Release](https://img.shields.io/github/v/release/Ratin568/titan-framework)](https://github.com/Ratin568/titan-framework/releases)
 
-**Version:** v2.0.0
+**Version:** v2.1.0
 
 Documentation: https://ratin568.github.io/titan-framework/
 

@@ -1,30 +1,110 @@
-cat > .gitignore << 'EOF'
-# Python
+
+# ==========================================
+# ENVIRONMENT & SECRETS
+# ==========================================
+
+.env
+.env.*
+!.env.example
+!.env.template
+
+*.pem
+*.key
+secrets/
+credentials/
+
+# ==========================================
+# PYTHON CACHE
+# ==========================================
+
 __pycache__/
 *.py[cod]
-*.so
-.Python
-.env
-.venv
+*$py.class
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.tox/
+.nox/
+
+# ==========================================
+# VIRTUAL ENVIRONMENTS
+# ==========================================
+
 venv/
+.venv/
+env/
 ENV/
-dist/
+
+# ==========================================
+# BUILD & DISTRIBUTION
+# ==========================================
+
 build/
+dist/
 *.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
 
-# Project specific
-.local/
-data/
-*.db
-*.sqlite
-*.log
+# ==========================================
+# LOGS
+# ==========================================
+
 logs/
-.DS_Store
-*.pid
+*.log
+*.log.*
 
-# IDE
+# ==========================================
+# TEST & COVERAGE
+# ==========================================
+
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml/
+
+# ==========================================
+# IDE & EDITORS
+# ==========================================
+
 .vscode/
 .idea/
+*.sublime-workspace
+*.sublime-project
+
+# ==========================================
+# OPERATING SYSTEM
+# ==========================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# TEMPORARY FILES
+# ==========================================
+
+*.tmp
+*.temp
+*.bak
 *.swp
 *.swo
-EOFg
+*.old
+
+# ==========================================
+# DATABASE FILES
+# ==========================================
+
+*.sqlite
+*.sqlite3
+*.db
+
+# ==========================================
+# TITAN MODULES
+# ==========================================
+
+# Keep all project modules tracked by Git.
+!modules/
+!modules/**

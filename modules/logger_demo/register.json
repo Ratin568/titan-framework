@@ -1,0 +1,12 @@
+
+{
+    "name": "logger_demo",
+    "priority": 10,
+    "enabled": true,
+    "files": [
+        "main.py"
+    ],
+    "description": "Titan Logger integration test",
+    "author": "Titan",
+    "version": "1.0.0"
+}

@@ -25,11 +25,18 @@
     "name": "titan_db"
   },
   "logging": {
-    "level": "INFO",
-    "format": "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+      "level": "INFO",
+      "console": true,
+      "file": false,
+      "file_path": "logs/titan.log",
+      "encoding": "utf-8",
+      "max_bytes": 5242880,
+      "backup_count": 5,
+      "timestamp_format": "%Y-%m-%d %H:%M:%S"
   },
   "features": {
     "hot_reload": true,
     "auto_sync_commands": true
   }
+
 }
